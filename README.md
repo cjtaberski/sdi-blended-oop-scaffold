@@ -16,7 +16,7 @@
 * The `debit()` method should take out the given amount of money from the account
 * The `checkBalance()` method should return the current balance of the account in a readable string
 * Anytime a transaction occurs, the amount credited or debited should be stored in a private property called `transactions`
-* There should be a static method of the `BankAccount` class that returns the private property `transactions` of the account passed in when called
+* There should be a static method on the `BankAccount` class called `transactionHistory` that returns the private `transactions` property of the account passed in as an argument
 
 #### `CheckingAccount`
 * Should be a subclass of `BankAccount`
@@ -25,7 +25,8 @@
 
 #### `SavingsAccount`
 * Should be a subclass of `BankAccount`
-* Should be able to link a `CheckingAccount` as a private property
+* Should have a private `linkedCheckingAccount` property
+* The `linkAccount` method should take a `CheckingAccount` as an argument and store it in the private `linkedCheckingAccount` property
 * Should allow you to transfer money from your `SavingsAccount` to your `CheckingAccount`
 * Should have a maximum number of debit transactions (10) associated with each `SavingsAccount`
 * If the maximum number of debit transactions is passed you should receive a $50 penalty fee
@@ -48,7 +49,7 @@ You will create two functions that utilize polymorphism :
 * Takes the same arguments as `distributeEvenly()`
 * Should only add funds to instances of `SavingsAccounts` and no others
 
-## Stretch goals
+## Stretch Goals
 * Implement some concept of time so that interest can be applied to `SavingsAccounts`
 * Implement a `CreditCard` class that develops interest. The balance of the `CreditCard` can be paid off using either `CheckingAccounts` or `SavingsAccounts`. In the cases of late payments a $25 penalty fee is applied to the balance of the `CreditCard`
 * Create multiple banks that can open `BankAccounts` and its subclasses
