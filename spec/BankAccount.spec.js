@@ -10,6 +10,7 @@
    * Anytime a transaction occurs, the amount credited or debited should be stored in a private property called `transactions`
    * There should be a static method of the `BankAccount` class that returns the private property `transactions` of the account passed in when called
    */
+
   describe(`Bank Account`, function () {
     let testBankAccount, randomNumber;
 
