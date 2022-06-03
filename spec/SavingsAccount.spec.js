@@ -1,13 +1,5 @@
 (function () {
   ("use strict");
-  /*
-* Should be a subclass of `BankAccount`
-* The `linkAccount()` method should allow linking a `CheckingAccount` and storing it as a private property
-* Should allow you to transfer money from your `SavingsAccount` to your `CheckingAccount`
-* Should have a maximum number of debit transactions (10) associated with each `SavingsAccount`
-* If the maximum number of debit transactions is passed you should receive a $50 penalty fee
-
-*/
   describe(`Savings Account`, function () {
     let testSavingsAccount;
     let testMember = new Member("Bort Sampson");

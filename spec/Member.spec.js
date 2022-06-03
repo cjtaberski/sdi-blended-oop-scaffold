@@ -1,11 +1,5 @@
 (function () {
   ("use strict");
-  /*
-* Should have one public field containing the member's name
-* Any instantiation of a `BankAccount` or its subclasses should require a member to instantiate
-* A `Member`'s accounts should be private
-
-*/
   describe(`Member`, function () {
     let testMember, testAccount;
     beforeEach(function () {

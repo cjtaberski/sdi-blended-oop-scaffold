@@ -1,16 +1,5 @@
 (function () {
   ("use strict");
-
-  /*
-   *  (Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields))
-   * `balance` should only be accessible via a getter named `getBalance` and a setter named `setbalance` (Read more about [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get))
-   * The `credit()` method should add the given amount of money into the account
-   * The `debit()` method should take out the given amount of money from the account
-   * The `checkBalance()` method should return the current balance of the account in a readable string
-   * Anytime a transaction occurs, the amount credited or debited should be stored in a private property called `transactions`
-   * There should be a static method of the `BankAccount` class that returns the private property `transactions` of the account passed in when called
-   */
-
   describe(`Bank Account`, function () {
     let testBankAccount, randomNumber, testMember;
 

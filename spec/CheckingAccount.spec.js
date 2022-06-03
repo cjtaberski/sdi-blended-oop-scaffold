@@ -1,11 +1,5 @@
 (function () {
   ("use strict");
-  /*
-* Should be a subclass of `BankAccount`
-* If you attempt to overdraft your `CheckingAccount` you should receive a message telling you that you have insufficient funds to perform that action
-* If the balance of a `CheckingAccount` ever falls below $50 you should receive a $40 penalty fee
-
-*/
   describe(`Checking Account`, function () {
     let testCheckingAccount;
     let testMember = new Member("Bort Sampson");

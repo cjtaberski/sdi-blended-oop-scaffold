@@ -1,14 +1,5 @@
 (function () {
   ("use strict");
-  /*
-#### `distributeEvenly()`
-* Should take an array of accounts and an amount to distribute as arguments
-* Should distribute the amount (to two decimal points) evenly amongst the balances of the accounts
-#### `distributeToSavings()`
-* Takes the same arguments as `distributeEvenly()`
-* Should only add funds to instances of `SavingsAccounts` and no others
-
-*/
   describe(`Utility Functions`, function () {
     let testBankAccount1,
       testBankAccount2,
