@@ -2,38 +2,15 @@ class Member {
   constructor(name) {}
 }
 class BankAccount {
-  #balance = 0;
-  #transactions = [];
-  static transactionHistory(x) {
-    return x.#transactions;
-  }
   constructor(member) {}
-  credit(x) {
-    this.#balance += x;
-    // this.#transactions.push({ type: "credit", val: x });
-    this.#transactions.push(x);
-  }
-  debit(x) {
-    this.#balance -= x;
-    // this.#transactions.push({ type: "debit", val: -x });
-    this.#transactions.push(-x);
-  }
-  checkBalance() {
-    return "$" + this.getBalance;
-  }
-  get getBalance() {
-    return this.#balance;
-  }
-  set setBalance(x) {
-    this.#balance = x;
-  }
+  credit() {}
+  debit() {}
+  checkBalance() {}
 }
-class CheckingAccount extends BankAccount {
-  constructor(member) {
-    super(member);
-  }
+class CheckingAccount {
+  constructor(member) {}
 }
-class SavingsAccount extends BankAccount {
+class SavingsAccount {
   constructor(member) {}
 }
 const distributeEvenly = () => {};
