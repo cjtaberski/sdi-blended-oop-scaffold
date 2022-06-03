@@ -12,13 +12,14 @@
    */
 
   describe(`Bank Account`, function () {
-    let testBankAccount, randomNumber;
+    let testBankAccount, randomNumber, testMember;
 
     function getRandomNumber(min = 0, max = 100000) {
       return min + Math.ceil(Math.random() * max);
     }
     beforeEach(() => {
-      testBankAccount = new BankAccount();
+      testMember = new Member("Bort Sampson");
+      testBankAccount = new BankAccount(testMember);
       randomNumber = getRandomNumber();
     });
     describe(`instantiation`, function () {
@@ -28,10 +29,16 @@
         expect(BankAccount.toString()).to.include("class");
         expect(testBankAccount).to.be.instanceof(BankAccount);
       });
+      it(`should throw an error if a valid Member instance is not provided`, function () {
+        expect(() => new BankAccount()).to.throw();
+        expect(() => new BankAccount(19)).to.throw();
+      });
+      it(`should store the member in the 'member' property`, function () {
+        expect(testBankAccount.member).to.be.instanceof(Member);
+        expect(testBankAccount.member).to.equal(testMember);
+      });
     });
     describe(`balance`, function () {
-      //`balance` should be a private property
-      //`balance` should only be accessible via a getter named `getBalance` and a setter named `setbalance`
       it(`should be accessible via getter`, function () {
         expect("getBalance" in testBankAccount).to.be.true;
         expect(testBankAccount.getBalance).to.equal(0);
@@ -102,8 +109,20 @@
         testBankAccount.credit(creditVal);
         testBankAccount.debit(debitVal);
         for (let key in testBankAccount) {
-          expect(testBankAccount[key]).not.to.include(creditVal);
-          expect(testBankAccount[key]).not.to.include(debitVal);
+          if (Array.isArray(testBankAccount[key])) {
+            expect(testBankAccount[key]).not.to.include(creditVal);
+            expect(testBankAccount[key]).not.to.include(debitVal);
+          } else if (typeof testBankAccount[key] === "object") {
+            expect(Object.values(testBankAccount[key])).not.to.include(
+              creditVal
+            );
+            expect(Object.values(testBankAccount[key])).not.to.include(
+              debitVal
+            );
+          } else {
+            expect(testBankAccount[key]).not.to.equal(creditVal);
+            expect(testBankAccount[key]).not.to.equal(debitVal);
+          }
         }
       });
     });

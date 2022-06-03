@@ -24,16 +24,22 @@
       beforeEach(function () {
         testCheckingAccount = new CheckingAccount(testMember);
       });
+      it(`should throw an error if transfer is called when no account is linked`, function () {
+        testSavingsAccount.credit(1000);
+        expect(() => testSavingsAccount.transfer(1)).to.throw();
+      });
       it(`should allow linking a Checking Account via the linkAccount() method`, function () {
         expect(`linkAccount` in testSavingsAccount).to.be.true;
-        expect(
-          testSavingsAccount.linkAccount(testCheckingAccount)
-        ).not.to.throw();
+        testSavingsAccount.credit(1000);
+        testSavingsAccount.linkAccount(testCheckingAccount);
+        expect(() => testSavingsAccount.transfer(20)).not.to.throw();
       });
       it(`should allow transferring money to the Checking Account via the transfer() method`, function () {
+        testSavingsAccount.linkAccount(testCheckingAccount);
         testSavingsAccount.credit(10000);
         testSavingsAccount.transfer(1337);
         expect(testCheckingAccount.getBalance).to.equal(1337);
+        expect(testSavingsAccount.getBalance).to.equal(8663);
       });
     });
     describe(`debit limit`, function () {

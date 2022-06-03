@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="lib/css/spec-runner-style.css" />
     <script src="lib/chai.js"></script>
     <script src="lib/mocha.js"></script>
-    <script src="lib/sinon.js"></script>
-    <script src="lib/sinon-chai.js"></script>
     <script src="lib/testSupport.js"></script>
 
     <!-- Source file -->
@@ -16,17 +14,6 @@
     <!-- End source file -->
 
     <!-- Test files -->
-    <script>
-      var clock;
-
-      before(function () {
-        clock = sinon.useFakeTimers();
-      });
-
-      after(function () {
-        clock.restore();
-      });
-    </script>
     <script type="text/javascript" src="spec/Member.spec.js"></script>
     <script type="text/javascript" src="spec/BankAccount.spec.js"></script>
     <script type="text/javascript" src="spec/CheckingAccount.spec.js"></script>

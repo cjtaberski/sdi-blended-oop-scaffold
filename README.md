@@ -9,6 +9,12 @@
   * `Member`
 * Implement the following instructions to ensure that each class is formatted properly
 
+
+###
+* Start Script
+* Discussion of adding sinon if desired (?)
+* Discussion of testing packages in lib folder to make this easy to run
+
 #### `BankAccount`
 * `balance` should be a private property (Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields))
 * `balance` should only be accessible via a getter named `getBalance` and a setter named `setbalance` (Read more about [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get))
@@ -57,9 +63,11 @@ You will create two functions that utilize polymorphism :
 
 ## Nightmare Mode
 
-During this course, you'll be testing your JavaScript code with Jest.  However, in this workshop, you may have discovered that the tests are written to leverage [Mocha](https://mochajs.org), [Chai](https://www.chaijs.com/), and [Sinon](https://sinonjs.org/). If you've gotten this far, you're probably not afraid of exploring some uncharted territory - right?  
+During this course, you'll be testing your JavaScript code with Jest.  However, in this workshop, you may have discovered that the tests are written to leverage [Mocha](https://mochajs.org) and [Chai](https://www.chaijs.com/). If you've gotten this far, you're probably not afraid of exploring some uncharted territory - right?  
 
 To take your code to the next level:
 * Read up on testing with Mocha and find out what Chai brings to the equation
 * Create a new test file in the `spec` directory and find out how to include it so that it gets displayed with the other tests in the browser
-* Write some excellent tests that test your code from the Stretch Goals above
+* Write some excellent Mocha/Chai tests that test your code from the Stretch Goals above
+* Create a `log` property accessible via `messageLog` getter on the BankAccount class that records debits, credits, and any automated event (such as fees, overdraft rejections, etc.) in order with a timestamp that records when they occurred
+* Write the tests for the `messageLog` property

@@ -27,7 +27,7 @@
         testCheckingAccount.credit(100);
         let response = testCheckingAccount.debit(101);
         expect(typeof response).to.equal("string");
-        expect(response).to.include("insufficient");
+        expect(response.match(/insufficient/gi)).to.not.be.null;
       });
       it(`should assess a $40 penalty fee if a transaction takes the account under $50 in balance`, function () {
         testCheckingAccount.credit(100);

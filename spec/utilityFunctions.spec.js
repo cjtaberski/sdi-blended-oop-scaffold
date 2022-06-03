@@ -65,12 +65,11 @@
       it(`should distribute the specified amount to all Savings Accounts provided`, function () {
         distributeToSavings(testAccountArray, 150);
         savingsAccounts.forEach(function (account) {
-          expect(account.getBalance).to.equal(50);
+          expect(account.getBalance).to.equal(75);
         });
       });
       it(`should not distribute anything to any accounts that are not Savings Accounts`, function () {
         distributeToSavings(testAccountArray, 150);
-
         otherAccounts.forEach(function (account) {
           expect(account.getBalance).to.equal(0);
         });
