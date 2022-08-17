@@ -1,35 +1,27 @@
 class Member {
-  constructor(name) {
-
-  };
-};
+  constructor(name) {}
+}
 class BankAccount {
-  constructor(member) {
-
-  };
-  credit() {
-
-  };
-  debit() {
-
-  };
-  checkBalance() {
-
-  };
-};
+  constructor(member) {}
+  credit() {}
+  debit() {}
+  checkBalance() {}
+}
 class CheckingAccount {
-  constructor(member) {
-
-  };
+  constructor(member) {}
 }
 class SavingsAccount {
-  constructor(member) {
-
-  };
+  constructor(member) {}
 }
-const distributeEvenly = () => {
+const distributeEvenly = () => {};
+const distributeToSavings = () => {};
 
-};
-const distributeToSavings = () => {
+// Don't edit the code below this line:
+// This injects your code into the 'window' so that the SpecRunner.html can display your tests in the browser
 
-};
+window.BankAccount = BankAccount;
+window.CheckingAccount = CheckingAccount;
+window.SavingsAccount = SavingsAccount;
+window.Member = Member;
+window.distributeEvenly = distributeEvenly;
+window.distributeToSavings = distributeToSavings;

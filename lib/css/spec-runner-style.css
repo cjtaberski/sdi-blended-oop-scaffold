@@ -1,0 +1,19 @@
+#mocha h1 {
+  font-weight: 400;
+}
+#mocha-report {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#mocha-report > .suite {
+  width: 40vw;
+}
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-break: break-all;
+}
