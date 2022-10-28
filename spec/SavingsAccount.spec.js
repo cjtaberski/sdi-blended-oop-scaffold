@@ -37,12 +37,12 @@
     describe(`debit limit`, function () {
       it(`should not allow more than 10 debits`, function () {
         testSavingsAccount.credit(100);
-        for (let i = 0; i < 11; i++) {
+        for (let i = 1; i < 12; i++) {
           testSavingsAccount.debit(1);
         }
         expect(testSavingsAccount.getBalance % 10).not.to.equal(9);
       });
-      it(`should assess a $50 penalty fee if the maximum number of debits is reached`, function () {
+      it(`should assess a $50 penalty fee if the maximum number of debits (10) is reached`, function () {
         testSavingsAccount.credit(100);
         for (let i = 0; i < 10; i++) {
           testSavingsAccount.debit(1);
