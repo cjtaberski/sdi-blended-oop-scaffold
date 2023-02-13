@@ -12,7 +12,7 @@
 
 ###
 * Start Script
-* Discussion of adding sinon if desired (?)
+* Discussion of adding sin on if desired (?)
 * Discussion of testing packages in lib folder to make this easy to run
 
 #### `BankAccount`
