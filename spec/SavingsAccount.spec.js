@@ -44,7 +44,7 @@
       });
       it(`should assess a $50 penalty fee if the maximum number of debits (10) is reached`, function () {
         testSavingsAccount.credit(100);
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 11; i++) {
           testSavingsAccount.debit(1);
         }
         expect(testSavingsAccount.getBalance).to.equal(40);
