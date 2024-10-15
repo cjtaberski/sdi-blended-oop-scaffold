@@ -1,11 +1,45 @@
 class Member {
-  constructor(name) {}
+  constructor(name) {
+    this.name = name;
+  }
 }
 class BankAccount {
-  constructor(member) {}
-  credit() {}
-  debit() {}
-  checkBalance() {}
+  #balance
+  #transactions
+  constructor(member, initialBalance = 0) {
+    this.member = member;
+    this.#balance = initialBalance;
+    this.#transactions = [];
+    // if(this.member !== instanceof Member){
+    //   throw new Error('test error')
+    // }
+  }
+  get getBalance(){
+    return this.#balance
+  }
+  set setBalance(amount){
+     this.#balance = amount;
+  }
+  
+  credit(amount) {
+    if(amount > 0){
+      this.#balance += amount;
+      this.#transactions.push({type: 'credit', amount})
+    }
+  }
+  debit(amount) {
+    if(amount > 0){
+      this.#balance -= amount
+      this.#transactions.push({type: 'debit', amount})
+    }
+  }
+  checkBalance() {
+    return `Your current balance is: $${this.#balance}`
+  }
+  static transactionHistory(instance){
+    return instance.#transactions;
+  }
+
 }
 class CheckingAccount {
   constructor(member) {}
@@ -25,3 +59,4 @@ window.SavingsAccount = SavingsAccount;
 window.Member = Member;
 window.distributeEvenly = distributeEvenly;
 window.distributeToSavings = distributeToSavings;
+
