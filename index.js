@@ -10,9 +10,9 @@ class BankAccount {
     this.member = member;
     this.#balance = initialBalance;
     this.#transactions = initialTransactions;
-    // if(this.member !== instanceof Member){
-    //   throw new Error('test error')
-    // }
+    if(!(this.member instanceof Member)){
+      throw new Error('invalid member')
+    }
   }
   get getBalance(){
     return this.#balance
@@ -25,7 +25,9 @@ class BankAccount {
     if(amount > 0){
       this.#balance += amount;
       this.#transactions.push({type: 'credit', amount})
+      
     }
+
   }
   debit(amount) {
     if(amount > 0){
@@ -53,7 +55,6 @@ class CheckingAccount extends BankAccount {
         super.debit(40);
       }
     } else {
-    //   let overdraft = (this.balance - amount) * -1;
     var message = "Your balance has insufficient funds"
       return message;
     } 
@@ -73,7 +74,6 @@ class SavingsAccount extends BankAccount {
       throw new Error('account not a valid checking account')
     } else {
       this.#linkedCheckingAccount = accountToBeLinked
-      console.log('account linked successfully')
     }
   }
   
@@ -91,12 +91,32 @@ class SavingsAccount extends BankAccount {
     } else if (amount <= this.getBalance) {
       this.debit(amount)
       this.#linkedCheckingAccount.credit(amount)
-      console.log('transfer was successful')
     }
   }
 }
-const distributeEvenly = () => {};
-const distributeToSavings = () => {};
+const distributeEvenly = (accounts, amount) => {
+  let accountAmount = Math.floor((amount / accounts.length *100))/100
+  console.log("account amount: ", accountAmount)
+
+  accounts.forEach(element => {
+    element.credit(accountAmount)
+  })
+
+};
+const distributeToSavings = (accounts, amount) => {
+  let savingsAccounts = [];
+
+  accounts.forEach(element => {
+  if(element instanceof SavingsAccount)
+    savingsAccounts.push(element)
+  console.log("accounts",savingsAccounts)
+  });
+  let accountAmount = Math.floor((amount / savingsAccounts.length *100))/100
+  savingsAccounts.forEach(element => {
+    element.credit(accountAmount)
+  })
+
+};
 
 // Don't edit the code below this line:
 // This injects your code into the 'window' so that the SpecRunner.html can display your tests in the browser
